@@ -6,8 +6,8 @@ import java.awt.*;
 public class Login extends JFrame {
     Login(){
         super("Login Frame");
-        getContentPane().setBackground(Color.WHITE);//Color in awt package
-        setLayout(null);//By default output null
+        getContentPane().setBackground(Color.WHITE);
+        setLayout(null);
         
         ImageIcon i2=new ImageIcon(ClassLoader.getSystemResource("icon/second.jpg"));
         Image i3=i2.getImage().getScaledInstance(230,230,Image.SCALE_DEFAULT); 
@@ -17,16 +17,16 @@ public class Login extends JFrame {
         add(image2);
         
         JLabel username=new JLabel("Username");
-        username.setBounds(300,20,100,20);//To set the message on the frame.This function works when default Layout is null
+        username.setBounds(300,20,100,20);
         add(username);
-        JTextField F1=new JTextField();//to add textfield
+        JTextField F1=new JTextField();
         F1.setBounds(400,20,150,20);
         add(F1);
         
         JLabel pass=new JLabel("Password");
         pass.setBounds(300,60,100,20);
         add(pass);
-        JTextField F2=new JTextField();//to add textfield
+        JTextField F2=new JTextField();
         F2.setBounds(400,60,150,20);
         add(F2);
         
@@ -34,13 +34,13 @@ public class Login extends JFrame {
         login1.setBounds(300,100,100,20);
         add(login1);
         
-        Choice login2=new Choice();//dropbox
+        Choice login2=new Choice();
         login2.add("Admin");
         login2.add("Customer");
         login2.setBounds(400,100,150,20);
         add(login2);
         
-        JButton b1=new JButton("Login");//to add button on the frame
+        JButton b1=new JButton("Login");
         b1.setBounds(330,150,100,30);
         add(b1);
         JButton b2=new JButton("Cancel");
@@ -50,7 +50,7 @@ public class Login extends JFrame {
         b3.setBounds(380,200,100,30);
         add(b3);
         
-        setSize(640,300);//Frame size
+        setSize(640,300);
         setLocation(400,200);
         setVisible(true);
     }
@@ -59,3 +59,4 @@ public class Login extends JFrame {
     }
     
 }
+
