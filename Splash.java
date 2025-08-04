@@ -11,8 +11,8 @@ public class Splash extends JFrame implements Runnable {
         
         Image i2=i1.getImage().getScaledInstance(768,432,Image.SCALE_DEFAULT); 
         ImageIcon i3=new ImageIcon(i2);
-        JLabel image=new JLabel(i3);
-        add(image);
+        JLabel image1=new JLabel(i3);
+        add(image1);
         
         setVisible(true);
         int x=1;
@@ -43,3 +43,4 @@ public class Splash extends JFrame implements Runnable {
     }
     
 }
+
