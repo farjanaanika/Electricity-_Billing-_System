@@ -1,9 +1,13 @@
-
 package electricity.billing.system;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
 
-public class Login extends JFrame {
+public class Login extends JFrame implements ActionListener {
+    JButton b1,b2,b3;
+    JTextField F1,F2;
+    Choice login2;
     Login(){
         super("Login Frame");
         getContentPane().setBackground(Color.WHITE);
@@ -19,14 +23,14 @@ public class Login extends JFrame {
         JLabel username=new JLabel("Username");
         username.setBounds(300,20,100,20);
         add(username);
-        JTextField F1=new JTextField();
+         F1=new JTextField();
         F1.setBounds(400,20,150,20);
         add(F1);
         
         JLabel pass=new JLabel("Password");
         pass.setBounds(300,60,100,20);
         add(pass);
-        JTextField F2=new JTextField();
+        F2=new JTextField();
         F2.setBounds(400,60,150,20);
         add(F2);
         
@@ -34,29 +38,68 @@ public class Login extends JFrame {
         login1.setBounds(300,100,100,20);
         add(login1);
         
-        Choice login2=new Choice();
+        login2=new Choice();
         login2.add("Admin");
         login2.add("Customer");
         login2.setBounds(400,100,150,20);
         add(login2);
         
-        JButton b1=new JButton("Login");
+        b1=new JButton("Login");
         b1.setBounds(330,150,100,30);
+        b1.addActionListener(this);
         add(b1);
-        JButton b2=new JButton("Cancel");
+         b2=new JButton("Cancel");
         b2.setBounds(450,150,100,30);
+        b2.addActionListener(this);
         add(b2);
-        JButton b3=new JButton("Signup");
+         b3=new JButton("Signup");
         b3.setBounds(380,200,100,30);
+        b3.addActionListener(this);
         add(b3);
         
         setSize(640,300);
         setLocation(400,200);
         setVisible(true);
     }
+    @Override
+    public void actionPerformed(ActionEvent ae){
+        if(ae.getSource()==b1){
+            String s1=F1.getText();
+            String s2=F2.getText();
+            String s3=login2.getSelectedItem();
+        
+            try{
+                Conn c=new Conn();
+                String query="select*from login where username ='"+s1+"' and password ='"+s2+"'and user='"+s3+"'";
+                ResultSet rs= c.s.executeQuery(query);
+               if(rs.next()){
+                   String meter=rs.getString("meter_no");
+                   setVisible(false);
+                   new Project(s3,meter);
+               }else{
+                   JOptionPane.showMessageDialog(null,"Invalid login");
+                   F1.setText("");
+                   F2.setText("");
+               }
+               
+            }catch(Exception e){
+                e.printStackTrace();
+            }   
+        } 
+        else if(ae.getSource()==b2){
+            setVisible(false);
+        }
+        else if(ae.getSource()==b3){
+            setVisible(false);
+            new Signup();
+        }
+        
+    }
     public static void main(String[] args) {
         new Login();
     }
     
 }
+
+
 
