@@ -20,19 +20,19 @@ public class Splash extends JFrame implements Runnable {
             setSize(i+x,i);
             setLocation(700-((i+x)/2),400-(i/2));
             try{
-                Thread.sleep(3);
+                Thread.sleep(3);//
             }catch(Exception e){
                 e.printStackTrace();
             }
         }
         t=new Thread(this);
-        t.start();
+        t.start(); 
         setVisible(true);
        
     }
         public void run(){ 
             try{
-                Thread.sleep(5000);
+                Thread.sleep(5000); 
                 setVisible(false);
                 new Login();
             }catch(Exception e){
