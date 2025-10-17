@@ -8,7 +8,7 @@ public class Conn {
     Statement s;
     Conn(){
         try{
-        c=DriverManager.getConnection("jdbc:mysql://localhost:3306/ebs","root","projectwork");
+        c=DriverManager.getConnection("jdbc:mysql://localhost:3306/ebs","root","......."); //
         s=c.createStatement();
         
         }catch(Exception e){
@@ -18,3 +18,4 @@ public class Conn {
         
     
 }
+
